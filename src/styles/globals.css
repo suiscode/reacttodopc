@@ -2,26 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.big{
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* width */
+.big::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+.big::-webkit-scrollbar-track {
+    background: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+ 
+/* Handle */
+.big::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+.big::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.small{
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* width */
+.small::-webkit-scrollbar {
+    width: 4px;
+}
+ 
+/* Track */
+.small::-webkit-scrollbar-track {
+    background: white;
+}
+ 
+/* Handle */
+.small::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+.small::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
