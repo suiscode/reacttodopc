@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 function Todo({ todo, handleEditButton, handleDelete, setToDone }) {
+
+  const handleDragStart = (e, todoId) => {
+    e.dataTransfer.setData('text/plain', todoId);
+  };
+
   return (
-    <li className="flex  justify-between bg-white rounded-xl p-3">
+    <li className="flex  justify-between bg-white rounded-xl p-3" draggable onDragStart={e=>handleDragStart(e, todo.id)}>
       <div className="flex gap-2">
         <Image
           src={todo.status === "Done" ? "./check.svg" : "./notcheck.svg"}
@@ -21,7 +26,7 @@ function Todo({ todo, handleEditButton, handleDelete, setToDone }) {
             {todo.description}
           </h1>
           <div className="flex justify-between relative w-[300px]">
-            <p className="text-[12px] border-[1px] flex justify-center items-center rounded-lg border-black p-1 w-10">
+            <p className="text-[12px] border-[1px] flex justify-center items-center rounded-lg border-black p-1">
               {todo.priority}
             </p>
             <div className="flex gap-2 absolute bottom-1 right-0">
